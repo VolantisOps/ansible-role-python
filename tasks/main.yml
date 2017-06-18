@@ -1,0 +1,14 @@
+---
+- name: Ensure python2 and python2-pip are installed
+  pacman: "name={{ item }} state=present"
+  with_items:
+    - python2
+    - python2-pip
+  when: python_enable_python2
+
+- name: Ensure python3 and python3-pip are installed
+  pacman: "name={{ item }} state=present"
+  with_items:
+    - python
+    - python-pip
+  when: python_enable_python3
